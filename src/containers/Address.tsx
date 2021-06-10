@@ -31,7 +31,7 @@ const Address: React.FC<IProps> = ({ match, history }) => {
   const blockNum = block === undefined ? blockNumber : parseInt(block, 10);
   const [transactions, setTransactions] = React.useState<Transaction[]>([]);
 
-  const from = Math.max(blockNum ? blockNum : 0 - 99, 0);
+  const from = Math.max(blockNum ? blockNum - 200 : 0 - 99, 0);
   const to = blockNum;
 
   React.useEffect(() => {
@@ -105,11 +105,11 @@ const Address: React.FC<IProps> = ({ match, history }) => {
         disablePrev={blockNum >= blockNumber}
         disableNext={blockNum === 0}
         onPrev={() => {
-          const newQuery = blockNum + 100;
+          const newQuery = blockNum + 200;
           history.push(`/address/${address}/${newQuery}`);
         }}
         onNext={() => {
-          const newQuery = Math.max(blockNum - 100, 0);
+          const newQuery = Math.max(blockNum - 200, 0);
           history.push(`/address/${address}/${newQuery}`);
         }}
       />
