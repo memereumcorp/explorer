@@ -19,12 +19,12 @@ function AddressView(props: IAddressViewProps) {
         <Typography variant="h6">{t("Balance")}: {balance}</Typography>
         <Typography variant="h6">{t("Transactions")}: {txCount}</Typography>
         <br />
-        <div>
+        {code!='0x' && (<div>
           <div>{t("Code")}</div>
           <pre>
             <code>{code}</code>
           </pre>
-        </div>
+        </div>)}        
       </CardContent>
     </Card>
   );
